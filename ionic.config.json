@@ -1,0 +1,7 @@
+{
+  "name": "Aurevia",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
