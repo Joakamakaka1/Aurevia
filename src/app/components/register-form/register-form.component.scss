@@ -1,0 +1,32 @@
+form {
+  display: block;
+  padding: 16px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+ion-item {
+  --background: white;
+  --color: black;
+  --border-color: #c58e8e;
+  --border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+ion-label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Inputs */
+ion-input, ion-select, ion-textarea {
+  --padding-start: 8px;
+  --color: black;
+  --border-radius: 4px;
+}
+
+ion-button {
+  --background: #3880ff;
+  --color: white;
+  font-weight: bold;
+}
