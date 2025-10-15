@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { api } from 'src/api/api';
 import { RegisterFormComponent } from 'src/app/components/register-form/register-form.component';
 import { SharedIonicModule } from 'src/app/shared-ionic.module';
+import { Register } from 'src/model/aurevia';
 
 @Component({
   selector: 'app-register',
@@ -30,8 +32,6 @@ export class RegisterComponent implements OnInit {
       console.error('Error registro', e);
     }
   }
-
-  fetchRegister() {}
 
   register = async (payload: Register) => {
     const response = await api.post('/auth/register', payload);
