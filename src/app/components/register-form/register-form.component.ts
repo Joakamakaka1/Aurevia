@@ -36,7 +36,11 @@ export class RegisterFormComponent implements OnInit {
   }
 
   register = async (payload: Register) => {
-    const response = await api.post('/auth/register', payload);
-    return response.data;
+    try {
+      const response = await api.post('/auth/register', payload);
+      return response.data;
+    } catch (error: any) {
+      alert('Error en el catch registro: ' + error?.response?.data?.error?.message);
+    }
   };
 }
