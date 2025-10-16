@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { api } from 'src/api/api';
+import { api } from 'src/lib/api';
 import { RegisterFormComponent } from 'src/app/components/register-form/register-form.component';
 import { SharedIonicModule } from 'src/app/shared-ionic.module';
 import { Register } from 'src/model/aurevia';

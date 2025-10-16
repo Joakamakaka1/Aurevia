@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { api } from 'src/api/api';
+import { api } from 'src/lib/api';
 import { SharedIonicModule } from 'src/app/shared-ionic.module';
 import { Register } from 'src/model/aurevia';
 
