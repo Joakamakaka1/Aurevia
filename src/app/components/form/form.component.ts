@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { api } from 'src/api/api';
+import { api } from 'src/lib/api';
 import { SharedIonicModule } from 'src/app/shared-ionic.module';
 import { Login } from 'src/model/aurevia';
 
@@ -11,8 +11,7 @@ import { Login } from 'src/model/aurevia';
   styleUrls: ['./form.component.scss'],
   imports: [ReactiveFormsModule, SharedIonicModule, CommonModule],
 })
-export class FormComponent  implements OnInit {
-
+export class FormComponent implements OnInit {
   private readonly fb = inject(FormBuilder);
 
   public loginForm = this.fb.group({
@@ -36,7 +35,9 @@ export class FormComponent  implements OnInit {
       const response = await api.post('/auth/login', payload);
       return response.data;
     } catch (error: any) {
-      alert('Error en el catch login: ' + error?.response?.data?.error?.message);
+      alert(
+        'Error en el catch login: ' + error?.response?.data?.error?.message
+      );
     }
   };
 }
