@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { api } from 'src/lib/api';
+import { Router } from '@angular/router';
 import { SharedIonicModule } from 'src/app/shared-ionic.module';
 import { Login } from 'src/model/aurevia';
 
@@ -13,10 +14,11 @@ import { Login } from 'src/model/aurevia';
 })
 export class FormComponent implements OnInit {
   private readonly fb = inject(FormBuilder);
+  private readonly router = inject(Router);
 
   public loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(2)]],
+    hashed_password: ['', [Validators.required, Validators.minLength(0)]],
   });
 
   ngOnInit() {}
@@ -25,7 +27,7 @@ export class FormComponent implements OnInit {
     if (this.loginForm.valid) {
       this.login({
         email: this.loginForm.value.email ?? '',
-        password: this.loginForm.value.password ?? '',
+        hashed_password: this.loginForm.value.hashed_password ?? '',
       });
     }
   }
@@ -33,6 +35,7 @@ export class FormComponent implements OnInit {
   login = async (payload: Login) => {
     try {
       const response = await api.post('/auth/login', payload);
+      await this.router.navigate(['/profile/' + payload.email]); // Navigate to profile with email param
       return response.data;
     } catch (error: any) {
       alert(

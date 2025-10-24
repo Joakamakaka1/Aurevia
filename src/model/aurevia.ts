@@ -6,11 +6,11 @@ export interface Register {
 
 export interface Login {
   email: string;
-  password: string;
+  hashed_password: string;
 }
 
 export interface User {
-  id: number,
+  id: number;
   username: string;
   email: string;
   hashed_password: string;

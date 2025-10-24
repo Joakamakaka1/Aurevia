@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { api } from 'src/lib/api';
-import { User } from 'src/model/aurevia';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent  implements OnInit {
+export class ProfileComponent implements OnInit {
+  private readonly route = inject(ActivatedRoute);
 
   user = {
     id: 0,
@@ -16,24 +17,25 @@ export class ProfileComponent  implements OnInit {
     hashed_password: '',
   };
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.fetchUser(this.user);
+    const email = this.route.snapshot.paramMap.get('email') || '';
+    if (email) {
+      this.fetchUserByEmail(email);
+    }
   }
 
-  fetchUser = async(payload: User) => {
+  fetchUserByEmail = async (email: string) => {
     try {
-      const response = await api.get(`auth/email/${'a2@gmail.com'}`)
+      const response = await api.get(`auth/email/${email}`);
 
       console.log(response.data);
 
       this.user = response.data;
-      return response.data
-
+      return response.data;
     } catch (error) {
       console.log(error);
     }
-
-  }
+  };
 }
