@@ -6,4 +6,26 @@ ion-content {
         margin-top: 20px;
         color: black;
     }
+
+    p {
+        text-align: center;
+        color: black;
+    }
+
+    .list-viajes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .cuadro-viaje {
+        flex: 1; 
+        width: 100%;                
+        box-sizing: border-box;
+        max-width: 320px;
+        border-radius: 8px;
+        background-color: bisque;
+        padding: 0.75rem;
+    }
 }

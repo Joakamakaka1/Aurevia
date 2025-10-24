@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedIonicModule } from 'src/app/shared-ionic.module';
 import { api } from 'src/lib/api';
 import { User } from 'src/model/aurevia';
 
@@ -6,9 +7,9 @@ import { User } from 'src/model/aurevia';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
+  imports: [SharedIonicModule],
 })
-export class ProfileComponent  implements OnInit {
-
+export class ProfileComponent implements OnInit {
   user = {
     id: 0,
     username: '',
@@ -16,24 +17,22 @@ export class ProfileComponent  implements OnInit {
     hashed_password: '',
   };
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.fetchUser(this.user);
   }
 
-  fetchUser = async(payload: User) => {
+  fetchUser = async (payload: User) => {
     try {
-      const response = await api.get(`auth/email/${'a2@gmail.com'}`)
+      const response = await api.get(`auth/email/${'a2@gmail.com'}`);
 
       console.log(response.data);
 
       this.user = response.data;
-      return response.data
-
+      return response.data;
     } catch (error) {
       console.log(error);
     }
-
-  }
+  };
 }
