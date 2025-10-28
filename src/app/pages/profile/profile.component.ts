@@ -1,11 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { api } from 'src/lib/api';
 import { ActivatedRoute } from '@angular/router';
+import { SharedIonicModule } from 'src/app/shared-ionic.module';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
+  imports: [SharedIonicModule],
 })
 export class ProfileComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
