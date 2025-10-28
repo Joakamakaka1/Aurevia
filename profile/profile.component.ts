@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { api } from 'src/lib/api';
 import { ActivatedRoute } from '@angular/router';
 import { SharedIonicModule } from 'src/app/shared-ionic.module';
+import { logoIonic } from 'ionicons/icons';
 
 @Component({
   selector: 'app-profile',

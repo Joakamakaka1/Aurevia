@@ -1,47 +1,129 @@
 <ion-content class="ion-padding">
 
-  <img src="../../../assets/imgs/pexels-rachel-claire-6762426.jpg">
+  <ion-card class="profile-card">
+    <ion-card-content class="profile-content">
+      <ion-avatar class="profile-avatar">
+        <img src="../../../assets/imgs/pexels-rachel-claire-6762426.jpg" alt="Profile">
+      </ion-avatar>
+      <ion-card-title class="profile-name font-super-trend">{{ user.username || 'Pepe'}}</ion-card-title>
+      <ion-card-subtitle class="email-label">EMAIL</ion-card-subtitle>
+      <ion-text class="email-value">
+        <p>{{ user.email || 'pepe@gmail.com'}}</p>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
 
-  <h1>{{ user.username }}</h1>
+  <ion-text class="section-title">
+    <h2 class="font-super-trend">Mis Viajes</h2>
+  </ion-text>
 
-  <div>
-    <p>Email: {{ user.email || 'Pepe'}}</p>
-    <p>Password: {{ user.hashed_password || 'Anacleto' }}</p>
-  </div>
+  <ion-list class="travel-list" lines="none">
+    <ion-item class="travel-item">
+      <ion-thumbnail slot="start" class="travel-thumbnail">
+        <img src="../../../assets/imgs/pexels-rachel-claire-6762426.jpg" alt="Viaje 1">
+      </ion-thumbnail>
 
-  <div class="list-viajes">
-    <div class="cuadro-viaje">
-      <img src="../../../assets/imgs/pexels-rachel-claire-6762426.jpg" alt="">
+      <ion-label class="travel-label">
+        <h2 class="font-super-trend">Viaje 1</h2>
+        <p class="travel-dates">
+          <ion-icon name="calendar-outline"></ion-icon>
+          16 July-26 July
+        </p>
+        <div class="rating">
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <span>3.0</span>
+        </div>
+        <div class="participants">
+          <ion-avatar class="participant-avatar">
+            <img src="https://i.pravatar.cc/150?img=1" alt="avatar">
+          </ion-avatar>
+          <ion-avatar class="participant-avatar">
+            <img src="https://i.pravatar.cc/150?img=2" alt="avatar">
+          </ion-avatar>
+          <ion-avatar class="participant-avatar">
+            <img src="https://i.pravatar.cc/150?img=3" alt="avatar">
+          </ion-avatar>
+          <ion-text class="participants-count">
+            <span>24 Person Joined</span>
+          </ion-text>
+        </div>
+      </ion-label>
+    </ion-item>
 
-      <div class="info-cuadro">
-        <p>Tarjeta viaje 1 - wehnchielgrirh hehehe hehehe heheh</p>
-        <p class="fecha">Fecha del viaje</p>
-        <button>Ver más</button>
-      </div>
-      
-    </div>
-  
-        <div class="cuadro-viaje">
-      <img src="../../../assets/imgs/pexels-rachel-claire-6762426.jpg" alt="">
+    <ion-item class="travel-item">
+      <ion-thumbnail slot="start" class="travel-thumbnail">
+        <img src="../../../assets/imgs/pexels-rachel-claire-6762426.jpg" alt="Viaje 2">
+      </ion-thumbnail>
 
-      <div class="info-cuadro">
-        <p>Tarjeta viaje 1 - wehnchielgrirh heheeh </p>
-        <img src="assets/icon/star-outline.svg" alt="icono" class="icon-svg">
-        <p>Fecha del viaje</p>
-        <button>Ver más</button>
-      </div>
-      
-    </div>
+      <ion-label class="travel-label">
+        <h2 class="font-super-trend">Viaje 2</h2>
+        <p class="travel-dates">
+          <ion-icon name="calendar-outline"></ion-icon>
+          20 Sep-29 Sep
+        </p>
+        <div class="rating">
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <span>3.0</span>
+        </div>
+        <div class="participants">
+          <ion-avatar class="participant-avatar">
+            <img src="https://i.pravatar.cc/150?img=4" alt="avatar">
+          </ion-avatar>
+          <ion-avatar class="participant-avatar">
+            <img src="https://i.pravatar.cc/150?img=5" alt="avatar">
+          </ion-avatar>
+          <ion-avatar class="participant-avatar">
+            <img src="https://i.pravatar.cc/150?img=6" alt="avatar">
+          </ion-avatar>
+          <ion-text class="participants-count">
+            <span>24 Person Joined</span>
+          </ion-text>
+        </div>
+      </ion-label>
+    </ion-item>
 
-        <div class="cuadro-viaje">
-      <img src="../../../assets/imgs/pexels-rachel-claire-6762426.jpg" alt="">
+    <ion-item class="travel-item">
+      <ion-thumbnail slot="start" class="travel-thumbnail">
+        <img src="../../../assets/imgs/pexels-rachel-claire-6762426.jpg" alt="Viaje 3">
+      </ion-thumbnail>
 
-      <div class="info-cuadro">
-        <p>Tarjeta viaje 1 - wehnchielgrirh </p>
-        <p>Fecha del viaje</p>
-        <button>Ver más</button>
-      </div>
-      
-    </div>
-  </div>
+      <ion-label class="travel-label">
+        <h2 class="font-super-trend">Viaje 3</h2>
+        <p class="travel-dates">
+          <ion-icon name="calendar-outline"></ion-icon>
+          14 Nov-22 Nov
+        </p>
+        <div class="rating">
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <span>4.0</span>
+        </div>
+        <div class="participants">
+          <ion-avatar class="participant-avatar">
+            <img src="https://i.pravatar.cc/150?img=7" alt="avatar">
+          </ion-avatar>
+          <ion-avatar class="participant-avatar">
+            <img src="https://i.pravatar.cc/150?img=8" alt="avatar">
+          </ion-avatar>
+          <ion-avatar class="participant-avatar">
+            <img src="https://i.pravatar.cc/150?img=9" alt="avatar">
+          </ion-avatar>
+          <ion-text class="participants-count">
+            <span>26 Person Joined</span>
+          </ion-text>
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
