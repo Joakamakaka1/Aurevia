@@ -5,17 +5,43 @@
   <h1>{{ user.username }}</h1>
 
   <div>
-    <p>Email: {{ user.email }}</p>
-    <p>Password: {{ user.hashed_password }}</p>
+    <p>Email: {{ user.email || 'Pepe'}}</p>
+    <p>Password: {{ user.hashed_password || 'Anacleto' }}</p>
   </div>
 
   <div class="list-viajes">
     <div class="cuadro-viaje">
-      <p>Tarjeta viaje 1</p>
+      <img src="../../../assets/imgs/pexels-rachel-claire-6762426.jpg" alt="">
+
+      <div class="info-cuadro">
+        <p>Tarjeta viaje 1 - wehnchielgrirh hehehe hehehe heheh</p>
+        <p class="fecha">Fecha del viaje</p>
+        <button>Ver más</button>
+      </div>
+      
     </div>
   
-    <div class="cuadro-viaje">
-      <p>Tarjeta viaje 2</p>
+        <div class="cuadro-viaje">
+      <img src="../../../assets/imgs/pexels-rachel-claire-6762426.jpg" alt="">
+
+      <div class="info-cuadro">
+        <p>Tarjeta viaje 1 - wehnchielgrirh heheeh </p>
+        <img src="assets/icon/star-outline.svg" alt="icono" class="icon-svg">
+        <p>Fecha del viaje</p>
+        <button>Ver más</button>
+      </div>
+      
+    </div>
+
+        <div class="cuadro-viaje">
+      <img src="../../../assets/imgs/pexels-rachel-claire-6762426.jpg" alt="">
+
+      <div class="info-cuadro">
+        <p>Tarjeta viaje 1 - wehnchielgrirh </p>
+        <p>Fecha del viaje</p>
+        <button>Ver más</button>
+      </div>
+      
     </div>
   </div>
 </ion-content>

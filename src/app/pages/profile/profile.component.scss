@@ -15,17 +15,58 @@ ion-content {
     .list-viajes {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        align-items: stretch;
+        gap: 10px;
     }
 
     .cuadro-viaje {
-        flex: 1; 
-        width: 100%;                
+        display: flex;
+        width: 100%;
+        min-height: 110px;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
         box-sizing: border-box;
-        max-width: 320px;
         border-radius: 8px;
-        background-color: bisque;
+        background-color: rgb(245, 245, 245);
         padding: 0.75rem;
+
+        img {
+            width: auto;
+            height: 100px;
+            border-radius: 5%;
+        }
+
+        .info-cuadro {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            gap: 10px;
+
+            p {
+                margin: 0;
+                color: black;
+                text-align: left;
+
+                white-space: normal;
+                word-break: break-word;
+                overflow-wrap: anywhere;
+
+                &.fecha {
+                    color: rgb(126, 126, 126);
+                }
+            }
+
+            button {
+                width: 100%;
+                padding: 8px;
+                background-color: #3880ff;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                align-self: center;
+            }
+        }
     }
 }
