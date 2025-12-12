@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormComponent } from 'src/app/components/form/form.component';
 import { SharedIonicModule } from 'src/app/shared-ionic.module';
 
@@ -10,7 +11,12 @@ import { SharedIonicModule } from 'src/app/shared-ionic.module';
   imports: [FormComponent, SharedIonicModule, CommonModule],
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  
+  private router: Router = inject(Router);
 
-  ngOnInit() {}
+  ngOnInit() { }
+
+  redirigirRegister() {
+    this.router.navigate(['/register']);
+  }
 }

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit, inject } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { SharedIonicModule } from 'src/app/shared-ionic.module';
 
 @Component({
@@ -9,10 +9,18 @@ import { SharedIonicModule } from 'src/app/shared-ionic.module';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   imports: [CommonModule, SharedIonicModule, RouterModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
 
-  ngOnInit() {}
+  private router: Router = inject(Router);
+
+  ngOnInit() { }
+
+  redirigirLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  redirigirRegister() {
+    this.router.navigate(['/register']);
+  }
 }
