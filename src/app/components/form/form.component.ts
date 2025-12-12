@@ -44,7 +44,7 @@ export class FormComponent implements OnInit {
       const data = await this.authProvider.login(payload); // Use AuthProvider
       if (data) {
         // Keep existing navigation logic, although profile route might need adjustment if params not supported
-        await this.router.navigate(['/profile']);
+        await this.router.navigate(['/profile/' + payload.email]);
         return data;
       }
     } catch (error: any) {

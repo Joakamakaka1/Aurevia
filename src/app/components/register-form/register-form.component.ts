@@ -19,8 +19,7 @@ export class RegisterFormComponent implements OnInit {
     // Wait, I should replace chunks.
     email: ['', [Validators.required, Validators.email]],
     username: ['', [Validators.required]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-    confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
   });
 
   showPassword = false;
