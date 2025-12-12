@@ -20,7 +20,7 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'profile',
+    path: 'profile/:email',
     loadComponent: () =>
       import('./pages/profile/profile.component').then(
         (m) => m.ProfileComponent

@@ -1,10 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { api } from 'src/lib/api';
+import { Router } from '@angular/router';
 import { RegisterFormComponent } from 'src/app/components/register-form/register-form.component';
 import { SharedIonicModule } from 'src/app/shared-ionic.module';
-import { Register } from 'src/model/aurevia';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +13,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   private router: Router = inject(Router);
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   redirigirLogin() {
     this.router.navigate(['/login']);

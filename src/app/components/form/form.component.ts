@@ -13,8 +13,8 @@ import { AuthProvider } from 'src/provider/authProvider';
   imports: [ReactiveFormsModule, SharedIonicModule, CommonModule],
 })
 export class FormComponent implements OnInit {
-  private readonly fb = inject(FormBuilder);
   private readonly router = inject(Router);
+  private readonly fb = inject(FormBuilder);
   private readonly authProvider = inject(AuthProvider); // Inject AuthProvider
 
   public loginForm = this.fb.group({

@@ -3,6 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SharedIonicModule } from 'src/app/shared-ionic.module';
 import { Register } from 'src/model/aurevia';
 import { AuthProvider } from 'src/provider/authProvider';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -11,6 +12,7 @@ import { AuthProvider } from 'src/provider/authProvider';
   imports: [ReactiveFormsModule, SharedIonicModule],
 })
 export class RegisterFormComponent implements OnInit {
+  private router: Router = inject(Router);
   private readonly fb = inject(FormBuilder);
   private readonly authProvider = inject(AuthProvider);
 
@@ -19,7 +21,7 @@ export class RegisterFormComponent implements OnInit {
     // Wait, I should replace chunks.
     email: ['', [Validators.required, Validators.email]],
     username: ['', [Validators.required]],
-    password: ['', [Validators.required, Validators.minLength(6)]]
+    password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
   showPassword = false;
@@ -39,6 +41,7 @@ export class RegisterFormComponent implements OnInit {
         role: 'user',
       });
       console.log('Registro OK', res);
+      this.router.navigate(['/profile']);
     } catch (e) {
       console.error('Error registro', e);
     }
