@@ -41,7 +41,7 @@ export class RegisterFormComponent implements OnInit {
         role: 'user',
       });
       console.log('Registro OK', res);
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/login']);
     } catch (e) {
       console.error('Error registro', e);
     }
