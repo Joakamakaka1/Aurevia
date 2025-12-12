@@ -21,7 +21,13 @@ export class FormComponent implements OnInit {
     hashed_password: ['', [Validators.required, Validators.minLength(0)]],
   });
 
+  showPassword = false;
+
   ngOnInit() {}
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
 
   onSubmit() {
     if (this.loginForm.valid) {

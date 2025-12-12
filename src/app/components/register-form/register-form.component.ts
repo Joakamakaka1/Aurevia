@@ -20,7 +20,13 @@ export class RegisterFormComponent implements OnInit {
     confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
   });
 
+  showPassword = false;
+
   ngOnInit() {}
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
 
   async onSubmit() {
     try {

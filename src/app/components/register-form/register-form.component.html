@@ -1,19 +1,31 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
-  <ion-item>
-    <ion-label position="floating">Usuario</ion-label>
-    <ion-input type="text" formControlName="username" required></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Email</ion-label>
-    <ion-input type="email" formControlName="email" required></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Password</ion-label>
-    <ion-input type="password" formControlName="password" required></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Confirm Password</ion-label>
-    <ion-input type="password" formControlName="confirmPassword" required></ion-input>
-  </ion-item>
-  <ion-button expand="full" shape="round" type="submit" [disabled]="!registerForm.valid">Register</ion-button>
+  <!-- Name Input -->
+  <div class="input-group">
+    <ion-input type="text" formControlName="username" placeholder="Leonardo Smith" required>
+    </ion-input>
+  </div>
+
+  <!-- Email Input -->
+  <div class="input-group">
+    <ion-input type="email" formControlName="email" placeholder="www.uihut@gmail.com" required>
+    </ion-input>
+  </div>
+
+  <!-- Password Input -->
+  <div class="input-group">
+    <ion-input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="* * * * * * * * *"
+      required>
+    </ion-input>
+    <button type="button" class="eye-button" (click)="togglePassword()">
+      <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+    </button>
+  </div>
+
+  <!-- Password Validation Text -->
+  <p class="validation-text">Password must be 8 character</p>
+
+  <!-- Sign Up Button -->
+  <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!registerForm.valid">
+    Sign Up
+  </ion-button>
 </form>

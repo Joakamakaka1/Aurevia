@@ -1,4 +1,38 @@
-<ion-content class="ion-padding">
-  <h1>Register</h1>
-  <app-register-form></app-register-form>
+<ion-content>
+  <div class="register-container">
+    <!-- Back Button -->
+    <ion-button fill="clear" class="back-button">
+      <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+    </ion-button>
+
+    <!-- Title Section -->
+    <div class="title-section">
+      <h1>Sign up now</h1>
+      <p class="subtitle">Please fill the details and create account</p>
+    </div>
+
+    <!-- Register Form -->
+    <app-register-form></app-register-form>
+
+    <!-- Sign In Link -->
+    <div class="signin-link">
+      <p>Already have an account? <a routerLink="/login">Sign in</a></p>
+    </div>
+
+    <!-- Social Connect -->
+    <div class="social-section">
+      <p class="social-text">Or connect</p>
+      <div class="social-buttons">
+        <button class="social-btn facebook">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+        <button class="social-btn instagram">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </button>
+        <button class="social-btn twitter">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
 </ion-content>
