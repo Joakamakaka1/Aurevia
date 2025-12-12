@@ -7,8 +7,8 @@
 
   <!-- Password Input -->
   <div class="input-group">
-    <ion-input [type]="showPassword ? 'text' : 'password'" formControlName="hashed_password"
-      placeholder="* * * * * * * * *" required>
+    <ion-input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="* * * * * * * * *"
+      required>
     </ion-input>
     <button type="button" class="eye-button" (click)="togglePassword()">
       <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>

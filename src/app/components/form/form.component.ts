@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { api } from 'src/lib/api';
 import { Router } from '@angular/router';
 import { SharedIonicModule } from 'src/app/shared-ionic.module';
 import { Login } from 'src/model/aurevia';
+import { AuthProvider } from 'src/provider/authProvider';
 
 @Component({
   selector: 'app-form',
@@ -15,10 +15,11 @@ import { Login } from 'src/model/aurevia';
 export class FormComponent implements OnInit {
   private readonly fb = inject(FormBuilder);
   private readonly router = inject(Router);
+  private readonly authProvider = inject(AuthProvider); // Inject AuthProvider
 
   public loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    hashed_password: ['', [Validators.required, Validators.minLength(0)]],
+    password: ['', [Validators.required, Validators.minLength(0)]],
   });
 
   showPassword = false;
@@ -33,16 +34,19 @@ export class FormComponent implements OnInit {
     if (this.loginForm.valid) {
       this.login({
         email: this.loginForm.value.email ?? '',
-        hashed_password: this.loginForm.value.hashed_password ?? '',
+        password: this.loginForm.value.password ?? '',
       });
     }
   }
 
   login = async (payload: Login) => {
     try {
-      const response = await api.post('/auth/login', payload);
-      await this.router.navigate(['/profile/' + payload.email]); // Navigate to profile with email param
-      return response.data;
+      const data = await this.authProvider.login(payload); // Use AuthProvider
+      if (data) {
+        // Keep existing navigation logic, although profile route might need adjustment if params not supported
+        await this.router.navigate(['/profile']);
+        return data;
+      }
     } catch (error: any) {
       alert(
         'Error en el catch login: ' + error?.response?.data?.error?.message
