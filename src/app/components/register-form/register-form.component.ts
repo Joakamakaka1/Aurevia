@@ -41,7 +41,6 @@ export class RegisterFormComponent implements OnInit {
         role: 'user',
       });
       console.log('Registro OK', res);
-      this.router.navigate(['/login']);
     } catch (e) {
       console.error('Error registro', e);
     }
@@ -50,7 +49,10 @@ export class RegisterFormComponent implements OnInit {
   register = async (payload: Register) => {
     try {
       const response = await this.authProvider.register(payload);
-      return response;
+      if (response) {
+        this.router.navigate(['/login']);
+        return response;
+      }
     } catch (error: any) {
       alert(
         'Error en el catch registro: ' + error?.response?.data?.error?.message

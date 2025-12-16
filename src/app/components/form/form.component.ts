@@ -24,7 +24,7 @@ export class FormComponent implements OnInit {
 
   showPassword = false;
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   togglePassword() {
     this.showPassword = !this.showPassword;
