@@ -43,14 +43,14 @@ export class FormComponent implements OnInit {
     try {
       const data = await this.authProvider.login(payload); // Use AuthProvider
       if (data) {
-        // Keep existing navigation logic, although profile route might need adjustment if params not supported
-        await this.router.navigate(['/profile/' + payload.email]);
+        await this.router.navigate(['/tabs']);
         return data;
       }
     } catch (error: any) {
-      alert(
-        'Error en el catch login: ' + error?.response?.data?.error?.message
-      );
+      const errorMessage = error?.response?.data?.error?.message
+        || error?.message
+        || 'Error desconocido durante el login';
+      alert('Error en el catch login: ' + errorMessage);
     }
   };
 }
