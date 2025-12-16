@@ -1,17 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <h1>dedeee</h1>
+  <div>
+    <h1>Create a trip</h1>
+    <form>
+      <input type="text" placeholder="Trip name">
+      <input type="text" placeholder="Trip description">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <input type="date" placeholder="Trip start date">
+      <input type="date" placeholder="Trip end date">
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+      <select>
+        <option value="">Select a country</option>
+        @for (country of countries; track country.country_id) {
+        <option [value]="country.country_id">{{ country.name }}</option>
+        }
+      </select>
+
+    </form>
+  </div>
 </ion-content>
